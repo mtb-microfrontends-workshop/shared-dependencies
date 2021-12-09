@@ -11,7 +11,6 @@ on:
 jobs:
   deploy:
     if: github.ref == 'refs/heads/main' && github.repository_owner == 'mtb-microfrontends-workshop'
-    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - id: update-import-map
