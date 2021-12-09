@@ -13,6 +13,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.repository_owner == 'mtb-microfrontends-workshop'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - id: update-import-map
         run: |
           curl -u ${{ secrets.IMD_USERNAME }}:${{ secrets.IMD_PASSWORD }} --data "@mtb.importmap" -X PATCH ${{ secrets.IMD_ORIGIN }}/import-map.json?env=mtb -H "Accept: application/json" -H "Content-Type: application/json" --fail
